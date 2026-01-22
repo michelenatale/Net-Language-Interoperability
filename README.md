@@ -18,6 +18,7 @@ This repository is designed to illustrate the mechanisms clearly — not to prov
 - [Quickstart](#-quickstart-windows-x64)
 - [Architecture Overview](#architecture-overview)
 - [Which Technique for What](#which-technique-for-what)
+- [How the Components Work Together](#which-technique-for-what)
 - [Project Structure](#project-structure)
 - [Code Examples](#code-examples)
   - [P/Invoke](#-pinvoke)
@@ -100,7 +101,6 @@ cl main.c NativeLibrary.lib /Fe:test.exe
                      |  calls NativeAOT exports  |
                      +---------------------------+
 ```
-
 ---
 
 ## Which Technique for What?
@@ -112,6 +112,39 @@ cl main.c NativeLibrary.lib /Fe:test.exe
 | **NativeAOT (C# → native DLL/.so)** | C# → C | C# compiled to real native code | When C/C++ must call C# |
 | **NativeAOT + .lib Export** | C → C# | C compiler links against C# code | Integrating .NET into native apps |
 | **C‑Wrapper → C#** | C# → C → C# | Full ABI control | Complex or cross‑platform interop |
+
+---
+
+## How the Components Work Together
+
+### 🔹 P/Invoke (C# → C)
+- C# declares an external function using `DllImport`.
+- The .NET runtime loads the native DLL at runtime.
+- Parameters are automatically marshalled.
+- Signatures, calling convention, and architecture must match exactly.
+
+### 🔹 LibraryImport (C# → C)
+- Modern mechanism using a source generator.
+- Marshaling is validated at compile time.
+- Lower overhead than classic P/Invoke.
+- Supports `Span<T>` and `stackalloc` for zero‑allocation interop.
+
+### 🔹 NativeAOT (C# → native DLL/.so)
+- C# code is compiled ahead‑of‑time into a real native library.
+- Functions are exported using `[UnmanagedCallersOnly]`.
+- Native programs (C/C++) can link against the generated `.lib` or `.a`.
+- Ideal when native applications need to call C# logic.
+
+### 🔹 C → C# via NativeAOT
+- C code links against the NativeAOT‑generated `.lib`.
+- Exported functions behave like regular C functions.
+- Useful for integrating .NET logic into existing C/C++ codebases.
+
+### 🔹 How it works in this repository
+- `crandom.c` → compiled to `crandom.dll` → consumed by C# via P/Invoke/LibraryImport.
+- `NativeLibrary` (C#) → compiled via NativeAOT to `NativeLibrary.dll` + `.lib`.
+- `TestNativeLibrary` (C) → links against `NativeLibrary.lib` → calls C# exports.
+- `TestLanguageInteroperability` (C#) → calls both native C and NativeAOT exports.
 
 ---
 
