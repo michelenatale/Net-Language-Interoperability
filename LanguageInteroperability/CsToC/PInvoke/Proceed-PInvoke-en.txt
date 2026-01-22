@@ -5,17 +5,17 @@ Ensure that the platform is “x64.”
 Open Command Prompt, but it must be the x64 native version.
 >> Go to the Windows Start menu and enter “x64 Native Tools,” then the correct one should appear.
 
-Once “x64 Native Tools Command Prompt for VS 2026” has started, set the path to cadd.c.c with cd..
+Once “x64 Native Tools Command Prompt for VS 2026” has started, set the path to cadd.c with cd..
 >> Change drive to X:
 >> cd X:\[..]\NetLanguageInteroperability\LanguageInteroperability\CsToC\PInvoke
 
 With “dumpbin /headers cadd.dll | findstr machine” 
 >> you can check what kind of “Command Prompt” it is.
 
-With “cl /LD cadd.c.c /Fe:cadd.dll”
->> cadd.c.c is compiled and a cadd.dll is generated.
+With “cl /LD cadd.c /Fe:cadd.dll”
+>> cadd.c is compiled and a cadd.dll is generated.
 
-When asked what kind of build cadd.c.c is, the only answer is that the cl command does not recognize “release” in the same way as VS2026. 
+When asked what kind of build cadd.c is, the only answer is that the cl command does not recognize “release” in the same way as VS2026. 
 However, it is a quasi-optimized build, and therefore it can be said that it is a release-like build.
 
 If a VS2026 release build is really required, the command
