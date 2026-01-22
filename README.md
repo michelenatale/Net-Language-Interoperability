@@ -31,7 +31,7 @@ This repository is designed to illustrate the mechanisms clearly — not to prov
 
 ---
 
-## 🚀 Quickstart (Windows x64)
+## Quickstart (Windows x64)
 
 ### 1. Clone the repository
 ```bash
