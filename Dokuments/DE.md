@@ -151,3 +151,9 @@ __declspec(dllimport) int aot_add(int a, int b);
 
 Siehe `LICENSE`.  
 Beiträge willkommen.
+
+---
+
+**Kurzfassung:**  
+Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispielen, das die drei wichtigsten Wege der .NET ↔ native Interoperabilität demonstriert: P/Invoke, LibraryImport und NativeAOT – inklusive C# → C und C → C#.  
+Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
