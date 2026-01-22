@@ -118,14 +118,28 @@ cl main.c NativeLibrary.lib /Fe:test.exe
 
 ## Projektstruktur
 
-- `/NativeLibrary` — NativeAOT‑Beispiel  
+High-Level-Struktur:
+
+- `/NativeLibrary`  
+  NativeAOT‑Beispiel: C#‑Projekt, das zu einer nativen DLL kompiliert wird (inkl. `.lib`).
+
 - `/LanguageInteroperability/CsToC`
-  - `/LibraryImport` — C‑Beispiel + C#‑Interop  
-  - `/NativeAOT` — zusätzliche native DLL (`add_aot.dll`)  
-- `/TestLanguageInteroperability` — C#‑Tests  
-- `/TestNativeLibrary` — C‑Tests  
-- `Proceed-*.txt` — Schritt‑für‑Schritt  
-- `WhatCanBeDeleted.txt` — Artefakte  
+  - `/LibraryImport`  
+    C‑Beispiel (`crandom.c`) + C#‑Code, der die DLL via `LibraryImport` nutzt.
+  - `/NativeAOT`  
+    Anleitungen und Dateien, um aus `NativeLibrary.lib` eine weitere native DLL (`add_aot.dll`) zu bauen.
+
+- `/TestLanguageInteroperability`  
+  C#‑Konsolenprojekt, das alle drei Ansätze (P/Invoke, LibraryImport, NativeAOT) ausführt.
+
+- `/TestNativeLibrary`  
+  Native C/C++‑Testprojekt, das gegen `NativeLibrary.lib` linkt und die exportierten Funktionen aufruft.
+
+- `Proceed-*.txt`  
+  Schritt‑für‑Schritt‑Anleitungen (DE/EN) für die einzelnen Teile.
+
+- `WhatCanBeDeleted.txt`  
+  Hinweise zu temporären Build‑Ordnern und generierten Artefakten.
 
 ---
 
