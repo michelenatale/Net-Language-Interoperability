@@ -1,5 +1,7 @@
 # Net-Language-Interoperability
 
+**[English-Version](https://github.com/michelenatale/Net-Language-Interoperability/blob/main/README.md)**
+
 Beispiele und Anleitungen, wie .NET (C#) mit nativen Bibliotheken (C/C++) interagiert – mit Fokus auf:
 
 - **P/Invoke**
@@ -313,4 +315,5 @@ Native C/C++‑Testprojekt, das gegen `NativeLibrary.lib` linkt.
 **Kurzfassung:**  
 Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispielen, das die drei wichtigsten Wege der .NET ↔ native Interoperabilität demonstriert: P/Invoke, LibraryImport und NativeAOT – inklusive C# → C und C → C#.  
 Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
+
 
