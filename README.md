@@ -1,8 +1,6 @@
 # Net-Language-Interoperability
 LanguageInteroperability for DotNet
 
-# Net-Language-Interoperability
-
 A compact collection of small, focused examples and step‑by‑step guides that demonstrate how .NET (C#) interoperates with native libraries (C/C++). The repository contains multiple approaches: P/Invoke, LibraryImport, and NativeAOT, plus test harnesses and build instructions in English and German.
 
 Short: Practical reference for .NET ↔ native C interoperability on Windows x64 using modern and classic techniques.
