@@ -19,7 +19,7 @@ Auf die Frage was die cadd.c für ein build ist, da kann nur geantwortet werden,
 Es handelt sich aber schon um eine quasi optimiertes Build, und daher darf man sagen, dass es um ein release-ähnliches build.
 
 Sofern wirklich eine VS2026-Realease-Build verlangt wird kann auch der Befehl
-"cl /LD /O2 /GL /Gy /DNDEBUG cadd.c /Fe:cadd.dll"
+__"cl /LD /O2 /GL /Gy /DNDEBUG cadd.c /Fe:cadd.dll"__
 verwendet werden, Das entspricht ziemlich genau einem Visual‑Studio‑Release‑Build.
 
 ******** ******** ******** ******** ******** ******** ******** ******** 
@@ -31,5 +31,6 @@ Es gäbe den Befehl "cl /LD /O2 cadd.c /Fe:cadd.dll" der würde noch mehr otimie
 Für einen Debug-ähnlichen Build 
 "cl /LD /Zi /Od cadd.c /Fe:cadd.dll"
 ist jedoch eigentlich nicht notwendig, aber auch nicht falsch.
+
 
 
