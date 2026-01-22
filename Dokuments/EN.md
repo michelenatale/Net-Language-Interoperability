@@ -13,6 +13,23 @@ This repository is designed to illustrate the mechanisms clearly — not to prov
 
 ---
 
+## Table of Contents
+
+- [Quickstart](#-quickstart-windows-x64)
+- [Architecture Overview](#architecture-overview)
+- [Which Technique for What](#which-technique-for-what)
+- [Project Structure](#project-structure)
+- [Code Examples](#code-examples)
+  - [P/Invoke](#-pinvoke)
+  - [LibraryImport](#-libraryimport)
+  - [NativeAOT Export](#-nativeaot-export-c--c)
+  - [C calling NativeAOT](#-c-calling-nativeaot)
+- [Troubleshooting](#troubleshooting)
+- [License  Contributions](#license--contributions)
+- [Summary](#summary)
+
+---
+
 ## 🚀 Quickstart (Windows x64)
 
 ### 1. Clone the repository
@@ -171,3 +188,14 @@ int main() {
 
 See `LICENSE`.  
 Contributions welcome.
+
+---
+
+## Summary
+
+This repository provides a compact, practical set of examples demonstrating the three major approaches to .NET ↔ native interoperability: 
+- P/Invoke
+- LibraryImport
+- NativeAOT - including both C# → C and C → C#
+
+The structure is designed to make the mechanisms easy to understand and reuse in your own projects.
