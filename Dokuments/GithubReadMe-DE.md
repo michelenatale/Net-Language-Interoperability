@@ -2,7 +2,7 @@
 
 ---
 > [!IMPORTANT]
-> ***Achtung:*** Das ganze projekt ist noch in Bearbeitung, und entspricht nicht dem Finale.
+> ***Achtung:*** Das ganze Projekt ist noch in Bearbeitung, und entspricht nicht dem Finale.
 ---
 
 **[English-Version](https://github.com/michelenatale/Net-Language-Interoperability/blob/main/README.md)**
@@ -232,5 +232,6 @@ Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispiel
 - NativeAOT - Inklusive C# → C und C → C#.
 
 Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
+
 
 
