@@ -92,7 +92,7 @@ gcc Src\TestNativeLibrary/main.c -o TestNativeLibrary
 The same applies to the NativeLibraryLib project.
 
 
-### 5. Build für das ganze Project 
+### 5. Build for the entire project
 ```cmd
 MSBuild.exe BuildAll.proj
 ```
