@@ -1,21 +1,20 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup>
-    <Projects Include="src\NativeLibrary\NativeLibrary.vcxproj" />
-    <Projects Include="src\TestNativeLibrary\NativeLibraryLib.vcxproj" />
-    <Projects Include="src\TestNativeLibrary\TestNativeLibrary.vcxproj" />
-    <Projects Include="src\LanguageInteroperability\LanguageInteroperability.csproj" />
-    <Projects Include="src\TestLanguageInteroperability\TestLanguageInteroperability.csproj" />
+    <Projects Include="Src\NativeLibraryLib\NativeLibraryLib.vcxproj" />
+    <Projects Include="Src\TestNativeLibrary\TestNativeLibrary.vcxproj" />
+    <Projects Include="Src\LanguageInteroperability\LanguageInteroperability.csproj" />
+    <Projects Include="Src\TestLanguageInteroperability\TestLanguageInteroperability.csproj" />
+    <Projects Include="Src\NativeLibrary\NativeLibrary.csproj" />
+  </ItemGroup>
 
+  <PropertyGroup>
     <Authors>© Michele Natale 2026</Authors>
     <Product>© NetLanguageInteroperability 2026</Product>
     <Company>© Michele Natale 2026</Company>
-    <Description>
-      Language Interoperability (LanguageInteroperability) for DotNet with P/Invoke, LibraryImport, NativeAOT. Once from C# → C and once from C → C#.
-    </Description>
-    <Copyright>© NetLanguageInteroperability 2026 - created by © Michele Natale 2026</Copyright>
-
-  </ItemGroup>
+    <Description> Language Interoperability (LanguageInteroperability) for DotNet with P/Invoke, LibraryImport, NativeAOT. Once from C# → C and once from C → C#. </Description>
+    <Copyright> © NetLanguageInteroperability 2026 - created by © Michele Natale 2026 </Copyright>
+  </PropertyGroup>
 
   <Target Name="Build">
     <MSBuild Projects="@(Projects)" Targets="Build" Properties="Configuration=Release" />
