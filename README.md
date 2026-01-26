@@ -211,6 +211,6 @@ Contributions welcome.
 This repository provides a compact, practical set of examples demonstrating the three major approaches to .NET ↔ native interoperability: 
 - P/Invoke
 - LibraryImport
-- NativeAOT - including both C# → C and C → C#
+- NativeAOT
 
 The structure is designed to make the mechanisms easy to understand and reuse in your own projects.
