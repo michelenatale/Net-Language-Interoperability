@@ -94,6 +94,8 @@ The same applies to the NativeLibraryLib project.
 
 ### 5. Build für das ganze Project 
 ```cmd
+dotnet sln NetLanguageInteroperability.sln add BuildAll.proj
+
 dotnet build NetLanguageInteroperability.sln
 ```
 
