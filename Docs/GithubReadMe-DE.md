@@ -210,8 +210,9 @@ Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispiel
 
 - P/Invoke
 - LibraryImport
-- NativeAOT - Inklusive C# → C und C → C#.
+- NativeAOT
 
 Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
+
 
 
