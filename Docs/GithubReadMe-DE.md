@@ -5,7 +5,6 @@
 **[English-Version](https://github.com/michelenatale/Net-Language-Interoperability/blob/main/README.md)**
 
 
-
 ## Ziel des Projekts
 
 Gemäss Wikipedia ist [LanguageInteroperability](https://en.wikipedia.org/wiki/Language\_interoperability) die Fähigkeit zweier verschiedener Programmiersprachen, nativ als Teil desselben Systems zu interagieren und auf denselben Arten von Datenstrukturen zu arbeiten.
@@ -91,12 +90,12 @@ Für die Projekten TestLanguageInteroperability, LanguageInteroperability und Na
 
 C/C++ build (Windows, MSVC)
 ```cmd
-cl Src\\TestNativeLibrary\\main.c
+cl Src\TestNativeLibrary\main.c
 ```
 
 C/C++ build (Linux, GCC)
 ```cmd
-gcc Src\\TestNativeLibrary/main.c -o TestNativeLibrary
+gcc Src\TestNativeLibrary\main.c -o TestNativeLibrary
 ```
 Das gleiche auch mit dem Projekt NativeLibraryLib.
 
@@ -152,11 +151,11 @@ dotnet build NetLanguageInteroperability.sln
 
 | Technik | Richtung | Vorteile | Typische Nutzung |
 |--------|----------|----------|------------------|
-| **P/Invoke (`DllImport`)\*\* | C# → C | Einfach, etabliert | Zugriff auf C‑APIs, Win32 |
-| **LibraryImport\*\* | C# → C | Schnell, compile‑time‑validiert | Performance‑kritische Interop |
-| **NativeAOT (C# → native DLL/.so)\*\* | C# → C | C# wird zu echter nativer DLL | Wenn C‑Programme C#‑Code aufrufen sollen |
-| **NativeAOT + .lib Export\*\* | C → C# | C‑Compiler linkt gegen C# | Integration in C/C++‑Code |
-| **C‑Wrapper → C#\*\* | C# → C → C# | Volle ABI‑Kontrolle | Komplexe Interop‑Szenarien |
+| **P/Invoke (`DllImport`)** | C# → C | Einfach, etabliert | Zugriff auf C‑APIs, Win32 |
+| **LibraryImport** | C# → C | Schnell, compile‑time‑validiert | Performance‑kritische Interop |
+| **NativeAOT (C# → native DLL/.so)** | C# → C | C# wird zu echter nativer DLL | Wenn C‑Programme C#‑Code aufrufen sollen |
+| **NativeAOT + .lib Export** | C → C# | C‑Compiler linkt gegen C# | Integration in C/C++‑Code |
+| **C‑Wrapper → C#** | C# → C → C# | Volle ABI‑Kontrolle | Komplexe Interop‑Szenarien |
 
 ---
 
@@ -166,33 +165,33 @@ dotnet build NetLanguageInteroperability.sln
 
 ```csharp
 [DllImport("crandom.dll", CallingConvention = CallingConvention.Cdecl)]
-private static extern void fill\_random(byte\[] buffer, int length);
+private static extern void fill_random(byte[] buffer, int length);
 ```
 
 ### ✔ LibraryImport
 
 ```csharp
 [LibraryImport("crandom.dll")]
-private static partial void fill\_random\_lib\_import(Span<byte> buffer, int length);
+private static partial void fill_random_lib_import(Span<byte> buffer, int length);
 ```
 
 ### ✔ NativeAOT Export
 ```csharp
-[UnmanagedCallersOnly(EntryPoint = "aot\_add")]
+[UnmanagedCallersOnly(EntryPoint = "aot_add")]
 public static int Add(int a, int b) => a + b;
 ```
 
 ### ✔ C ruft NativeAOT auf
 
 ```c
-__declspec(dllimport) int aot\_add(int a, int b);
+__declspec(dllimport) int aot_add(int a, int b);
 ```
 ---
 
 ## Troubleshooting
 
-- **DllNotFoundException\*\* → DLL fehlt  
-- **BadImageFormatException\*\* → Architektur falsch  
+- **DllNotFoundException** → DLL fehlt  
+- **BadImageFormatException** → Architektur falsch  
 - `dumpbin /headers` hilft  
 - Pfade über MSBuild‑Makros setzen  
 
@@ -214,6 +213,3 @@ Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispiel
 - NativeAOT - Inklusive C# → C und C → C#.
 
 Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
-
-
-
