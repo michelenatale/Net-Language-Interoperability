@@ -1,0 +1,68 @@
+﻿WICHTIG
+*******
+
+Sicherstellen, dass die Plattform "x64" ist.
+
+
+Vor der Veröffentlichung:
+*************************
+
+Target Name="CopyNativeAotOutput" muss für die Veröffentlichung des Projektes 
+'NativeLibrary' aus NativeLibrary.csproj entfernt sein. Nach der Veröffentlichung 
+wieder ganz am Schluss einfügen. (siehe gleich unten)
+
+<Target Name="CopyNativeAotOutput" AfterTargets="Build">
+  <ItemGroup>
+    <NativeAotDll Include="$(PublishDir)..\native\$(TargetName).dll" />
+    <NativeAotLib Include="$(PublishDir)..\native\$(TargetName).lib" />
+  </ItemGroup>
+
+  <Copy SourceFiles="@(NativeAotDll)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
+
+  <Copy SourceFiles="@(NativeAotLib)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
+</Target>  
+
+
+Weitere Vorarbeit
+*****************
+
+Wer möchte kann in allen Projekte jeweils die Verzeichnisse bin, obj, x64 löschen.
+
+
+Veröffentlichung:
+*****************
+
+Menu Extra >> Befehlszeile >> Developer-PowerShell öffnen
+
+Den Pfad des Command Promt dort hin setzen wo die Datei "NativeLibrary.csproj" ist.
+>> x:\[..]\NetLanguageInteroperability\NativeLibrary\NativeLibrary.csproj 
+
+Den Befehl "dotnet publish -c Release -r win-x64" ausführen.
+
+
+NativeLibrary.csproj
+********************
+
+Target Name="CopyNativeAotOutput" (siehe Textblock oben) ganz am Schluss wieder einfügen.
+
+Wichtig: ALLE Projekte am Besten gleich mit einem Rechtsklick "Neu erstellen", 
+einfach einmal komplett durchgehen.
+
+
+StartProjekt
+************
+
+Als Startprojekt "TestLanguageInteroperability" setzen mit 
+rechte Maustaste >> Als Startprojekt festlegen
+
+
+Prüfen einer Dll ob sie Nativ ist
+*********************************
+
+Den Pfad des Command Promt dort hin setzen wo die DLL-Datei ist.
+Nicht vergessen den Dateinamen korrekt zu schreiben.
+
+>> z.B. x:\[..]\NetLanguageInteroperability\[..]\NativeLibrary.dll 
+
+z.B. "dumpbin /headers NativeLibrary.dll | findstr CLR"
+>> wenn keine ausgabe dann ist es nativ

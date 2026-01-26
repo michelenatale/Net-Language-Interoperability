@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NuGetAudit>False</NuGetAudit>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+
+
+    <Authors>© Michele Natale 2026</Authors>
+    <Product>© LanguageInteroperability 2026</Product>
+    <Company>© Michele Natale 2026</Company>
+    <Description>
+      Language Interoperability (LanguageInteroperability) for DotNet with P/Invoke, LibraryImport, NativeAOT. Once from C# → C and once from C → C#.
+    </Description>
+    <Copyright>© LanguageInteroperability 2026 - created by © Michele Natale 2026</Copyright>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <Target Name="CopyManagedDlls" AfterTargets="Build">
+    <!-- Ensures that the created managed dll are copied to the build\nativ directory. -->
+    <!-- Sorgt dafür, dass die kreierten managend dll, in das Verzeichnis build\nativ kopiert werden. -->
+    <ItemGroup>
+      <ManagedDlls Include="$(OutDir)*.dll" />
+    </ItemGroup>
+
+    <Copy
+        SourceFiles="@(ManagedDlls)"
+        DestinationFolder="$(SolutionDir)Build\Bin\"
+        SkipUnchangedFiles="true" />
+  </Target>
+
+
+</Project>

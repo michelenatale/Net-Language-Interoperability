@@ -1,0 +1,66 @@
+﻿IMPORTANT
+*********
+
+Ensure that the platform is “x64.”
+
+
+Before publishing:
+******************
+
+Target Name="CopyNativeAotOutput" must be removed from NativeLibrary.csproj 
+for the publication of the project ‘NativeLibrary’. 
+After publishing, insert it again at the very end. (see below)
+
+<Target Name="CopyNativeAotOutput" AfterTargets="Build">
+  <ItemGroup>
+    <NativeAotDll Include="$(PublishDir)..\native\$(TargetName).dll" />
+    <NativeAotLib Include="$(PublishDir)..\native\$(TargetName).lib" />
+  </ItemGroup>
+
+  <Copy SourceFiles="@(NativeAotDll)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
+  <Copy SourceFiles="@(NativeAotLib)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
+</Target>
+
+
+Further preparatory work
+************************
+
+If you wish, you can delete the bin, obj, and x64 directories in all projects.
+
+
+Publication:
+************
+
+Menu Extra >> Command Line >> Open Developer PowerShell
+
+Set the path of the command prompt to where the file “NativeLibrary.csproj” is located.
+>> x:\[..]\NetLanguageInteroperability\NativeLibrary\NativeLibrary.csproj 
+
+Execute the command “dotnet publish -c Release -r win-x64”.
+
+
+NativeLibrary.csproj
+********************
+
+Reinsert Target Name="CopyNativeAotOutput" (see text block above) at the very end.
+
+Important: It is best to right-click on ALL projects and select “Rebuild.” 
+
+
+Start Project
+*************
+
+Set “TestLanguageInteroperability” as the start project with 
+right mouse button >> Set as start project
+
+
+Checking whether a DLL is native
+*********************************
+
+Set the path of the command prompt to where the DLL file is located.
+Do not forget to write the file name correctly.
+
+>> e.g. x:\[..]\NetLanguageInteroperability\[..]\NativeLibrary.dll 
+
+e.g. “dumpbin /headers NativeLibrary.dll | findstr CLR”
+>> if there is no output, then it is native

@@ -1,0 +1,24 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/BuildInterrop/">
+    <File Path="BuildAll.proj" />
+  </Folder>
+  <Project Path="Src/NativeLibrary/NativeLibrary.csproj">
+    <BuildType Solution="Debug|x64" Project="Release" />
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Src/NativeLibraryLib/NativeLibraryLib.vcxproj" Id="b2412c1e-aedb-4b85-b0d0-d629bfb282d2">
+    <BuildType Solution="Debug|x64" Project="Release" />
+  </Project>
+  <Project Path="Src/TestNativeLibrary/TestNativeLibrary.vcxproj" Id="a9efcc29-0458-4851-b303-8a513c834ceb" />
+  <Project Path="Src\LanguageInteroperability\LanguageInteroperability.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Src\TestLanguageInteroperability/TestLanguageInteroperability.csproj" Id="d37f9242-9faf-4f84-be07-ec1ce30e9de2">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
