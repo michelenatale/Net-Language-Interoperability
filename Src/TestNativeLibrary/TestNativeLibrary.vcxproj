@@ -177,12 +177,14 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+
   <Target Name="CopyNativeDlls" AfterTargets="Build">
-    <!-- Ensures that the created native files are copied to the Build\Nativ directory. -->
-    <!-- Sorgt dafür, dass die kreierten nativen Dateine, in das Verzeichnis Build\Nativ kopiert werden. -->
+    <!-- Ensures that the created native files are copied to the Build\Native directory. -->
+    <!-- Sorgt dafür, dass die kreierten nativen Dateine, in das Verzeichnis Build\Native kopiert werden. -->
     <ItemGroup>
       <NativeDlls Include="$(OutDir)*.exe" />
     </ItemGroup>
-    <Copy SourceFiles="@(NativeDlls)" DestinationFolder="$(SolutionDir)Build\Nativ\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(NativeDlls)" DestinationFolder="$(SolutionDir)Build\Native\" SkipUnchangedFiles="true" />
   </Target>
+
 </Project>

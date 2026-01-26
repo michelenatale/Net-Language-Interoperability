@@ -13,12 +13,12 @@ After publishing, insert it again at the very end. (see below)
 
 <Target Name="CopyNativeAotOutput" AfterTargets="Build">
   <ItemGroup>
-    <NativeAotDll Include="$(PublishDir)..\native\$(TargetName).dll" />
-    <NativeAotLib Include="$(PublishDir)..\native\$(TargetName).lib" />
+    <NativeAotDll Include="$(PublishDir)..\Native\$(TargetName).dll" />
+    <NativeAotLib Include="$(PublishDir)..\Native\$(TargetName).lib" />
   </ItemGroup>
 
-  <Copy SourceFiles="@(NativeAotDll)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
-  <Copy SourceFiles="@(NativeAotLib)" DestinationFolder="$(SolutionDir)build\native\" SkipUnchangedFiles="true" />
+  <Copy SourceFiles="@(NativeAotDll)" DestinationFolder="$(SolutionDir)Build\Native\" SkipUnchangedFiles="true" />
+  <Copy SourceFiles="@(NativeAotLib)" DestinationFolder="$(SolutionDir)Build\Native\" SkipUnchangedFiles="true" />
 </Target>
 
 

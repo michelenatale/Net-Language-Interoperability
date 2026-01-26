@@ -57,19 +57,9 @@
   </ItemGroup>
 
   <Target Name="CopyNativeAotOutput" AfterTargets="Build">
-    <!-- 
- Target Name="CopyNativeAotOutput" must be removed for the publication of 
- the ‘NativeLibrary’ project. After publication, insert it again at the 
- very end.
- 
- Target Name="CopyNativeAotOutput" muss für die veröffentlichung des 
- Projektes 'NativeLibrary' entfernt sein. Nach der Veröffentlichung 
- wieder ganz am Schluss einfügen.
- -->
     <ItemGroup>
       <NativeAotDll Include="$(PublishDir)..\Native\$(TargetName).dll" />
       <NativeAotLib Include="$(PublishDir)..\Native\$(TargetName).lib" />
-
     </ItemGroup>
 
     <Copy SourceFiles="@(NativeAotDll)" DestinationFolder="$(SolutionDir)Build\Native\" SkipUnchangedFiles="true" />

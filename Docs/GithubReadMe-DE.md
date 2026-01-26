@@ -215,4 +215,3 @@ Dieses Repository ist ein bewusst kompaktes, praxisorientiertes Set von Beispiel
 Die Struktur ist so gewählt, dass man die Mechanismen klar erkennen und in eigene Projekte übertragen kann.
 
 
-

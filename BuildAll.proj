@@ -1,11 +1,11 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup>
+    <Projects Include="Src\NativeLibrary\NativeLibrary.csproj" />
     <Projects Include="Src\NativeLibraryLib\NativeLibraryLib.vcxproj" />
     <Projects Include="Src\TestNativeLibrary\TestNativeLibrary.vcxproj" />
     <Projects Include="Src\LanguageInteroperability\LanguageInteroperability.csproj" />
     <Projects Include="Src\TestLanguageInteroperability\TestLanguageInteroperability.csproj" />
-    <Projects Include="Src\NativeLibrary\NativeLibrary.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -16,8 +16,15 @@
     <Copyright> © NetLanguageInteroperability 2026 - created by © Michele Natale 2026 </Copyright>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- Lösungssroot: dort, wo BuildAll.proj liegt -->
+    <SolutionDir>$(MSBuildProjectDirectory)\</SolutionDir>
+  </PropertyGroup>
+  
   <Target Name="Build">
-    <MSBuild Projects="@(Projects)" Targets="Build" Properties="Configuration=Release" />
+    <!-- <MSBuild Projects="@(Projects)" Targets="Build" Properties="Configuration=Release;" /> -->
+    <MSBuild Projects="@(Projects)" Targets="Build" Properties="Configuration=Release;SolutionDir=$(SolutionDir)" />
+    
   </Target>
 
 </Project>
