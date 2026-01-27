@@ -214,3 +214,11 @@ This repository provides a compact, practical set of examples demonstrating the 
 - NativeAOT
 
 The structure is designed to make the mechanisms easy to understand and reuse in your own projects.
+
+---
+
+## Video Mp4 - Publish, Compile and Execure
+
+[publish-compile-execute.mp4](https://github.com/michelenatale/Net-Language-Interoperability/blob/main/Docs/publish-compile-execute_14.mp4) 
+
+---
