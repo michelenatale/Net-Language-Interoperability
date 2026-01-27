@@ -1,5 +1,9 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+  <!--
+  https://learn.microsoft.com/de-de/cpp/build/reference/common-macros-for-build-commands-and-properties?view=msvc-170
+  -->
+  
   <ItemGroup>
     <Projects Include="Src\NativeLibrary\NativeLibrary.csproj" />
     <Projects Include="Src\NativeLibraryLib\NativeLibraryLib.vcxproj" />
